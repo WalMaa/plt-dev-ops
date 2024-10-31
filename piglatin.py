@@ -31,4 +31,7 @@ class PigLatin:
             if self.__phrase[-1] in self.vowels:
                 return self.__phrase[:-1] + "yay"
 
+            if self.__phrase[-1] not in self.vowels:
+                return self.__phrase[:-1] + "ay"
+
             return self.__phrase
