@@ -25,4 +25,7 @@ class PigLatin:
             if ( self.__phrase == ""):
                 return "nil"
 
+            if (self.__phrase[-1] == 'y'):
+                self.__phrase = self.__phrase[:-1] + "nay"
+
             return self.__phrase
