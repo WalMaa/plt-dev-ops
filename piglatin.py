@@ -25,6 +25,9 @@ class PigLatin:
             if self.__phrase == "":
                 return "nil"
 
+            if self.__phrase[0] not in self.vowels:
+                return self.__phrase[1:] + self.__phrase[0] + "ay"
+
             if self.__phrase[-1] == 'y':
                 return self.__phrase + "nay"
 
