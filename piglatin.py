@@ -38,12 +38,11 @@ class PigLatin:
                 return "nil"
 
             # Starting consonants
-
             starting_consonants = self.amount_of_starting_consonants()
 
+            # Move starting consonants to the tail and append ay
             if starting_consonants > 0:
                 return self.__phrase[starting_consonants:] + self.__phrase[:starting_consonants] + "ay"
-
 
             if self.__phrase[-1] == 'y':
                 return self.__phrase + "nay"
