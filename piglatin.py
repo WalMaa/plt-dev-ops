@@ -26,12 +26,12 @@ class PigLatin:
                 return "nil"
 
             if self.__phrase[-1] == 'y':
-                return self.__phrase[:-1] + "nay"
+                return self.__phrase + "nay"
 
             if self.__phrase[-1] in self.vowels:
-                return self.__phrase[:-1] + "yay"
+                return self.__phrase + "yay"
 
             if self.__phrase[-1] not in self.vowels:
-                return self.__phrase[:-1] + "ay"
+                return self.__phrase + "ay"
 
             return self.__phrase

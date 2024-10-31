@@ -20,15 +20,15 @@ class TestPigLatin(unittest.TestCase):
         self.assertEqual("nil", translator.translate())
 
     def test_word_ends_with_y_append_nay(self):
-        translator = PigLatin.PigLatinTranslator("easy")
-        self.assertEqual("easnay", translator.translate())
+        translator = PigLatin.PigLatinTranslator("any")
+        self.assertEqual("anynay", translator.translate())
 
     def test_word_ends_with_vowel_append_yay(self):
-        translator = PigLatin.PigLatinTranslator("the")
-        self.assertEqual("thyay", translator.translate())
+        translator = PigLatin.PigLatinTranslator("apple")
+        self.assertEqual("appleyay", translator.translate())
 
     def test_word_ends_with_consonant_append_ay(self):
-        translator = PigLatin.PigLatinTranslator("think")
-        self.assertEqual("thinay", translator.translate())
+        translator = PigLatin.PigLatinTranslator("ask")
+        self.assertEqual("askay", translator.translate())
 
 
