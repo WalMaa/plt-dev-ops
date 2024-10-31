@@ -38,6 +38,11 @@ class TestPigLatin(unittest.TestCase):
         translator = PigLatin.PigLatinTranslator("known")
         self.assertEqual("ownknay", translator.translate())
 
+    def test_translate_multiple_words(self):
+        translator = PigLatin.PigLatinTranslator("hello world")
+        self.assertEqual("ellohay orldway", translator.translate())
+
+
 
 
 

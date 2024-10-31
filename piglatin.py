@@ -21,9 +21,9 @@ class PigLatin:
         def __init__(self, phrase: str):
             self.__phrase = phrase
 
-        def amount_of_starting_consonants(self) -> int:
+        def amount_of_starting_consonants(self, word) -> int:
             consonants = 0
-            for char in self.__phrase:
+            for char in word:
                 if char not in self.vowels:
                     consonants = consonants + 1
                 else:
@@ -37,23 +37,38 @@ class PigLatin:
             if self.__phrase == "":
                 return "nil"
 
+            words = self.__phrase.split()
+
+            translation = ""
+
+            for word in words:
+                if translation != "":
+                    translation = translation + " "
+
+                translation = translation + self.translate_word(word)
+
+            return translation
+
+        def translate_word(self, word):
+
             # Starting consonants
-            starting_consonants = self.amount_of_starting_consonants()
+            starting_consonants = self.amount_of_starting_consonants(word)
 
             # Move starting consonants to the tail and append ay
             if starting_consonants > 0:
-                return self.__phrase[starting_consonants:] + self.__phrase[:starting_consonants] + "ay"
+                return word[starting_consonants:] + word[:starting_consonants] + "ay"
 
-            if self.__phrase[-1] == 'y':
-                return self.__phrase + "nay"
+            if word[-1] == 'y':
+                return word + "nay"
 
-            if self.__phrase[-1] in self.vowels:
-                return self.__phrase + "yay"
+            if word[-1] in self.vowels:
+                return word + "yay"
 
-            if self.__phrase[-1] not in self.vowels:
-                return self.__phrase + "ay"
+            if word[-1] not in self.vowels:
+                return word + "ay"
 
-            return self.__phrase
+            return word
+
 
 
 
