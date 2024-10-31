@@ -1,5 +1,4 @@
 import unittest
-from idlelib.pyparse import trans
 
 from piglatin import PigLatin
 from error import PigLatinError
@@ -34,6 +33,12 @@ class TestPigLatin(unittest.TestCase):
     def test_translate_word_with_single_consonant(self):
         translator = PigLatin.PigLatinTranslator("hello")
         self.assertEqual("ellohay", translator.translate())
+
+    def test_translate_word_with_multiple_consonants(self):
+        translator = PigLatin.PigLatinTranslator("known")
+        self.assertEqual("ownknay", translator.translate())
+
+
 
 
 
