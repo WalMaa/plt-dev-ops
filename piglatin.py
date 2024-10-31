@@ -12,7 +12,7 @@ class PigLatin:
         pass
 
     class PigLatinTranslator:
-
+        vowels = "AaEeIiOoUu"
         __phrase: str
 
         def __init__(self, phrase: str):
@@ -22,10 +22,13 @@ class PigLatin:
             return self.__phrase
 
         def translate(self) -> str:
-            if ( self.__phrase == ""):
+            if self.__phrase == "":
                 return "nil"
 
-            if (self.__phrase[-1] == 'y'):
-                self.__phrase = self.__phrase[:-1] + "nay"
+            if self.__phrase[-1] == 'y':
+                return self.__phrase[:-1] + "nay"
+
+            if self.__phrase[-1] in self.vowels:
+                return self.__phrase[:-1] + "yay"
 
             return self.__phrase
