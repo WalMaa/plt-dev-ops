@@ -1,4 +1,5 @@
 import functools
+from gettext import translation
 
 
 class PigLatin:
@@ -44,6 +45,16 @@ class PigLatin:
             for word in words:
                 if translation != "":
                     translation = translation + " "
+
+                if '-' in word:
+                    composites = word.split('-')
+                    for index, composite in enumerate(composites):
+                        composite = self.translate_word(composite)
+                        composites[index] = composite
+                    translation = translation +  "-".join(composites)
+                    continue
+
+
 
                 translation = translation + self.translate_word(word)
 
