@@ -46,6 +46,12 @@ class TestPigLatin(unittest.TestCase):
         translator = PigLatin.PigLatinTranslator("well-being")
         self.assertEqual("ellway-eingbay", translator.translate())
 
+    def test_preserve_punctuations(self):
+        translator = PigLatin.PigLatinTranslator("hello world!")
+        self.assertEqual("ellohay orldway!", translator.translate())
+
+
+
 
 
 

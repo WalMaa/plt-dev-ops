@@ -1,5 +1,7 @@
 import functools
 from gettext import translation
+import re
+from string import punctuation
 
 
 class PigLatin:
@@ -17,6 +19,7 @@ class PigLatin:
 
     class PigLatinTranslator:
         vowels = "AaEeIiOoUu"
+        punctuations = ["\"", ",", ".", ";", ":", "'", "?", "!", "(", ")"]
         __phrase: str
 
         def __init__(self, phrase: str):
@@ -35,10 +38,13 @@ class PigLatin:
             return self.__phrase
 
         def translate(self) -> str:
+
             if self.__phrase == "":
                 return "nil"
 
+            #split phrase into words
             words = self.__phrase.split()
+            re.split(r'(!+)',self.__phrase)
 
             translation = ""
 
@@ -46,6 +52,7 @@ class PigLatin:
                 if translation != "":
                     translation = translation + " "
 
+                # translate composite words
                 if '-' in word:
                     composites = word.split('-')
                     for index, composite in enumerate(composites):
@@ -75,7 +82,7 @@ class PigLatin:
             if word[-1] in self.vowels:
                 return word + "yay"
 
-            if word[-1] not in self.vowels:
+            if word[-1] not in self.vowels and self.punctuations:
                 return word + "ay"
 
             return word
